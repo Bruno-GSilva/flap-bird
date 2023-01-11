@@ -1,0 +1,14 @@
+@import url(reset.css);
+
+#bg-login{
+    height: 600px;
+    width: 300px;
+    background-image: url(../images/background-login.png);
+    background-repeat: no-repeat;
+    background-position-y: -40px;
+    border: 5px solid;
+    border-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
