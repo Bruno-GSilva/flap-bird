@@ -18,7 +18,6 @@ body {
   overflow: hidden;
 }
 .obstaculoP{
-    background-repeat: no-repeat;
     background-image: url(../images/pipeNorth.png);
 }
 .obstaculoG{
