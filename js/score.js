@@ -1,4 +1,4 @@
-import "./index";
+import "./main";
 
 let colide = Boolean(colisor.value);
 let score = 0;
