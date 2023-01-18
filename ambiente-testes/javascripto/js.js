@@ -18,9 +18,7 @@ document.addEventListener("click",() => {
     console.log("subindoo")
 })
 
-function again(){
-    // comecaAgora()
-}
+
 
 function Render(){
     img.addEventListener('load',function(){
@@ -74,6 +72,7 @@ function gravidadeAgindo(){
             console.log("gravidade parou de agir");
         }
     }, 8);
+    
 
 }
 
