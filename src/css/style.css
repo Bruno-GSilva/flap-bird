@@ -1,0 +1,21 @@
+@import url(reset.css);
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #desenho{
+    background-repeat: no-repeat;
+    background-image: url(../images/background-login.png);
+    border: 1px solid black;
+    box-shadow: 0 0 15px black;
+  }
+  #score{
+    position: absolute;
+    border: 1px solid red;
+    box-shadow: 0 0 15px black;
+  }
