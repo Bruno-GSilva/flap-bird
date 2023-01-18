@@ -7,16 +7,12 @@ let bY = 150;
 let gravidade = 100;
 let gravitySalve = gravidade
 
-
-
 img.src = "images/bird.png";
-
 
 document.addEventListener("click",() => {
     Moveup();
     console.log("subindoo")
 })
-
 
 
 function Render(){
@@ -37,10 +33,7 @@ function Moveup() {
  
 }
 
-
 const reset = () => {
-    // continua = true;
-    // score = 0;
     gravidade = () =>{
         if(gravidade === 100){
             gravidade = 0;
@@ -51,7 +44,6 @@ const reset = () => {
     gravidadeAgindo();
 }
 
-
 function comecaAgora() {
     
     score = 0;
@@ -59,8 +51,6 @@ function comecaAgora() {
     bY = 150;
     Render();
     gravidadeAgindo();
-   
-
 }
 
 function gravidadeAgindo(){
@@ -79,10 +69,7 @@ function gravidadeAgindo(){
             console.log("gravidade parou de agir");
         }
     }, 8);
-    
 
 }
-
-
 
 
