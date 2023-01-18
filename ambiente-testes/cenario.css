@@ -5,43 +5,55 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 #cenario {
   width: 500px;
   height: 900px;
   border: 1px solid;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-attachment: fixed;
   background-image: url(../images/background-login.png);
   overflow: hidden;
 }
-.obstaculoP{
-    background-image: url(../images/pipeNorth.png);
-}
-.obstaculoG{
-    background-image: url(../images/pipeSouth.png);
-}
-/* .obstaculo:first-child {
-  position: absolute;
-  left: 0px;
-  animation: mover1 5.5s infinite;
-}
-.obstaculo:last-child {
-  position: absolute;
-  bottom: 0px;
-  left: -90px;
-  animation: mover2 5.5s infinite;
+
+#obstaculoP {
+  left: -300px;
+  position: relative;
+  /* border: 1px solid; */
+  width: 52px;
+  height: 243px;
+  background-repeat: no-repeat;
+  background-image: url(../images/pipeNorth.png);
+  /* animation: obs1 1.5s linear infinite; */
 }
 
-@keyframes mover1{
-    100%{
-        left: 100%;
-    }
+#obstaculoG {
+  position: relative;
+  left: -345px;
+  /* border: 1px solid; */
+  width: 52px;
+  height: 379px;
+  background-repeat: no-repeat;
+  background-image: url(../images/pipeSouth.png);
+  /* animation: obs2 1.5s linear infinite; */
 }
-@keyframes mover2{
-    100%{
-        left: 100%;
-    }
-} */
+
+.obstaculoP{
+  animation: andar 1.5s linear infinite;
+}
+.obstaculoG{
+ animation: andar 1.5s linear infinite;
+}
+
+@keyframes andar{
+  100%{
+    left: 100%;
+  }
+}
+
+#desenho{
+  border: 1px solid black;
+}
