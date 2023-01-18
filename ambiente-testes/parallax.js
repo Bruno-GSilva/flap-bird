@@ -11,12 +11,12 @@ function Rerender() {
 }
 //objects
 let obstacle1 = {
-  positionX: 0,
+  positionX: 550,
   positionY: random(-150, 0),
 };
 
 let obstacle2 = {
-  positionX: 0,
+  positionX: 550,
   positionY: random(450,550),
 };
 
@@ -26,24 +26,26 @@ let cano2 = document.createElement("img");
 cano2.src = "images/pipeSouth.png";
 
 //playing game
+function loopingCano() {
 
-moveCano = setInterval(function () {
-  
-  if(obstacle1.positionX === 650){
-    clearInterval(moveCano)
-    obstacle1.positionX = 0;
-    obstacle2.positionX = 0;
+  if(obstacle1.positionX === -50){
+    obstacle1.positionX = 600;
+    obstacle2.positionX = 600;
+    obstacle1.positionY = random(-150, 0);
+    obstacle2.positionY = random(450,550);
   }
 
-  obstacle1.positionX += 10
-  obstacle2.positionX += 10
+  obstacle1.positionX--
+  obstacle2.positionX--
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   Rerender();
   console.log(obstacle1.positionX)
 
- 
+}
 
-}, 5)
+moveCano = setInterval(loopingCano, 0.1)
 
-
+// setTimeout(function(){
+//   clearInterval(moveCano)
+// }, 10000)
