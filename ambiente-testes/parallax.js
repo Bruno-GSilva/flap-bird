@@ -29,7 +29,6 @@ cano2.src = "images/pipeSouth.png";
 
 moveCano = setInterval(function () {
   
-
   if(obstacle1.positionX === 650){
     clearInterval(moveCano)
     obstacle1.positionX = 0;
