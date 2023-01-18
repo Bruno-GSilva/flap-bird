@@ -2,10 +2,14 @@ let stage = document.getElementById('stage');
 let ctx = stage.getContext("2d");
 let img = document.createElement("img");
 
-let bX = 10;
-let bY = 150;
-let gravidade = 100;
-let gravitySalve = gravidade
+let propsImg = {
+    bX: 10,
+    bY: 150,
+    gravidade: 100,
+}
+
+let gravitySalve = propsImg.gravidade;
+
 
 img.src = "images/bird.png";
 
@@ -20,18 +24,18 @@ function again(){
 
 function Render(){
     img.addEventListener('load',function(){
-        ctx.drawImage(img, bX, bY);
+        ctx.drawImage(img, propsImg.bX, propsImg.bY);
     });
 }
 function Rerender() {
     ctx.clearRect(0, 0, stage.width, stage.height);
-    ctx.drawImage(img, bX, bY);
+    ctx.drawImage(img, propsImg.bX, propsImg.bY);
 }
 
 function Moveup() {
     ctx.clearRect(0, 0, stage.width, stage.height);
-    ctx.drawImage(img, bX, bY);
-    gravidade -= 80;
+    ctx.drawImage(img, propsImg.bX, propsImg.bY);
+    propsImg.gravidade -= 80;
     img.style.transition = 'ease-in 1s';
     img.style.transform = "rotateY(45deg)";
 
@@ -50,24 +54,24 @@ function Moveup() {
 
 function comecaAgora() {
     score = 0;
-    gravidade = gravitySalve;
-    bY = 150;   
+    propsImg.gravidade = gravitySalve;
+    propsImg.bY = 150;   
     Render();
     gravidadeAgindo();
 }
 
 function gravidadeAgindo() {
     interval = setInterval(() => {
-        if (gravidade > -100) {
-            gravidade++;
-            bY = gravidade;
+        if (propsImg.gravidade > -100) {
+            propsImg.gravidade++;
+            propsImg.bY = propsImg.gravidade;
             Rerender();
-            console.log("gravidade caindo: " + gravidade);
+            console.log("gravidade caindo: " + propsImg.gravidade);
         }
-        if (gravidade >= 500) {
+        if (propsImg.gravidade >= 500) {
             clearInterval(interval);
             ctx.clearRect(0, 0, stage.width, stage.height)
-            gravidade = gravitySalve;
+            propsImg.gravidade = gravitySalve;
 
             console.log("gravidade parou de agir");
         }
