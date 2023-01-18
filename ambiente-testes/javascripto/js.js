@@ -36,23 +36,10 @@ function Rerender(){
 
 function Moveup() {
     ctx.clearRect(0, 0, stage.width, stage.height);
-    // bY += 20;
+
     ctx.drawImage(img, bX, bY);
     gravidade -= 80;
-    img.style.transition = 'ease-in 1s';
-    img.style.transform = "rotateY(45deg)";
-
-    // Render();
-    // if (!contiginua) {
-    //     return false;
-    // }
-    // gravidade = -6.0;
-    // // fly.play();
-
-    // setTimeout(function() {
-    //     gravidade =  gravitySalve;
-    // }, 80);
-
+ 
 }
 
 
@@ -65,7 +52,7 @@ const reset = () => {
         }
     };
     bY = 150;
-    // Render();
+   
     gravidadeAgindo();
 }
 
@@ -90,8 +77,11 @@ function gravidadeAgindo(){
         }
         if(gravidade >= 500){
             clearInterval(interval);
+            gravidade = gravitySalve;
+            
+            
             console.log("gravidade parou de agir");
-            reset();
+           
         }
     }, 8);
     
