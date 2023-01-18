@@ -6,8 +6,8 @@ random = (min, max) => {
 };
 
 let obstacle1 = {
-  positionX: 100,
-  positionY: 450,
+  positionX: 0,
+  positionY: 0,
 };
 
 let obstacle2 = {
@@ -15,35 +15,45 @@ let obstacle2 = {
   positionY: 0,
 };
 
-let cano1 = new Image();
-let cano2 = new Image();
+let cano1 = document.createElement("img");
+cano1.src = "images/pipeNorth.png";
 
-function render(img, url, arr1, arr2) {
+let cano2 = document.createElement("img");
+cano2.src = "images/pipeSouth.png";
+
+function render(img, arr1, arr2) {
   img.addEventListener("load", function () {
     ctx.drawImage(img, arr1, arr2);
   });
-  img.src = url;
 }
+render(cano1, obstacle1.positionX, obstacle1.positionY)
 
-window.addEventListener("click", function () {
+setInterval(function () {
+  obstacle1.positionX -= 100
+  // ctx.clearRect(0, 0, canvas.width, canvas.height)
+}, 800);
 
-  // ctx.clearRect(0, 0, canvas.width, canvas.height);
-  let obs1 = obstacle1.positionX++;
-  let obs2 = obstacle2.positionX++;
+// setInterval(() => {
+//   ;
+// }, 400);
 
-  console.log(obs1, obs2);
-  render(
-    cano1,
-    "images/pipeSouth.png",
-    obstacle1.positionX,
-    obstacle1.positionY
-  );
-  render(
-    cano2,
-    "images/pipeNorth.png",
-    obstacle2.positionX,
-    obstacle2.positionY
-  );
-  
-});
-ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+// window.addEventListener("click", function () {
+//   // ctx.clearRect(0, 0, canvas.width, canvas.height);
+//   let obs1 = obstacle1.positionX++;
+//   let obs2 = obstacle2.positionX++;
+//   console.log(obs1, obs2);
+//   render(
+//     cano1,
+//     "images/pipeSouth.png",
+//     obstacle1.positionX,
+//     obstacle1.positionY
+//   );
+//   render(
+//     cano2,
+//     "images/pipeNorth.png",
+//     obstacle2.positionX,
+//     obstacle2.positionY
+//   );
+// });
+// ctx.clearRect(0, 0, canvas.width, canvas.height);
