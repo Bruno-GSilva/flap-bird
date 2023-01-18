@@ -15,7 +15,7 @@ img.src = "images/bird.png";
 
 document.addEventListener("click",() => {
     Moveup();
-    console.log("subindo")
+    console.log("subindoo")
 })
 
 function again(){
