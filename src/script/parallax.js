@@ -26,6 +26,7 @@ let cano2 = document.createElement("img");
 cano2.src = "src/images/pipeSouth.png";
 
 //playing game
+setTimeout(function(){
 function loopingCano() {
   
   if(obstacle1.positionX === -50){
@@ -43,8 +44,9 @@ function loopingCano() {
   // console.log(obstacle1.positionX)
 }
 
-moveCano = setInterval(loopingCano, 0.1)
+moveCano = setInterval(loopingCano, 0.01)
 
+}, 1700)
 // setTimeout(function(){
 //   clearInterval(moveCano)
 // }, 10000)

@@ -8,17 +8,13 @@ interval = setInterval(() => {
     if(updtScore === Infinity){
         clearInterval(interval)
     }else if(updtScore !== Infinity){
-        ctx1.font='50px arial';
-        ctx1.fillStyle='blue';
-        ctx1.fillText(`${updtScore.toString()}` ,50 ,150);
+        ctx1.font='50px fantasy';
+        ctx1.fillStyle='white';
+        ctx1.fillText(`${updtScore.toString()}` ,170 ,70);
         updtScore++;
     }
     // ctx1.fillRect(0, 0, canvas1.width, canvas1.height);
     console.log(typeof(updtScore))
-}, 1000)
+}, 1200)
 
 console.log(typeof(interval))
-
-// ctx1.font='100px arial';
-// ctx1.fillStyle='blue';
-// ctx1.fillText(interval ,50 ,150);
