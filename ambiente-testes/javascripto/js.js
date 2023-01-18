@@ -19,7 +19,7 @@ document.addEventListener("click",() => {
 })
 
 function again(){
-    comecaAgora()
+    // comecaAgora()
 }
 
 function Render(){
@@ -64,7 +64,7 @@ function comecaAgora() {
 
 function gravidadeAgindo(){
     interval = setInterval(() => {
-        if(gravidade > 0){
+        if(gravidade > -100){
             gravidade++;
             bY = gravidade;
             Rerender();
@@ -73,7 +73,7 @@ function gravidadeAgindo(){
             clearInterval(interval);
             console.log("gravidade parou de agir");
         }
-    }, 0,7);
+    }, 8);
 
 }
 
