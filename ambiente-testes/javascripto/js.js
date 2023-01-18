@@ -18,9 +18,7 @@ document.addEventListener("click", () => {
     console.log("subindoo")
 })
 
-function again(){
-    comecaAgora()
-}
+
 
 function Render(){
     img.addEventListener('load',function(){
@@ -38,17 +36,6 @@ function Moveup() {
     propsImg.gravidade -= 80;
     img.style.transition = 'ease-in 1s';
     img.style.transform = "rotateY(45deg)";
-
-    // Render();
-    // if (!continua) {
-    //     return false;
-    // }
-    // gravidade = -6.0;
-    // // fly.play();
-
-    // setTimeout(function() {
-    //     gravidade =  gravitySalve;
-    // }, 80);
 
 }
 
