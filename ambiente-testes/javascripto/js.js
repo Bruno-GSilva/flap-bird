@@ -1,21 +1,16 @@
 let stage = document.getElementById('stage');
 let ctx = stage.getContext("2d");
-let continua = true;
-let gap = 85;
+let img = document.createElement("img");
+
 let bX = 10;
 let bY = 150;
 let gravidade = 100;
 let gravitySalve = gravidade
-let correr = 7.2;
-let anima;
-let interval;
 
-let img = document.createElement("img");
+
+
 img.src = "images/bird.png";
 
-let rotate = {
-    rotateY: 45,
-}
 
 document.addEventListener("click",() => {
     Moveup();
@@ -58,14 +53,15 @@ const reset = () => {
 
 
 function comecaAgora() {
-    continua = true;
+    
     score = 0;
     gravidade = gravitySalve;
     bY = 150;
     Render();
     gravidadeAgindo();
+   
 
-} comecaAgora();
+}
 
 function gravidadeAgindo(){
     interval = setInterval(() => {
@@ -77,11 +73,10 @@ function gravidadeAgindo(){
         }
         if(gravidade >= 500){
             clearInterval(interval);
+            ctx.clearRect(0,0, stage.width, stage.height)
             gravidade = gravitySalve;
             
-            
             console.log("gravidade parou de agir");
-           
         }
     }, 8);
     
