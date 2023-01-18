@@ -1,6 +1,6 @@
 let stage = document.getElementById('stage');
 let ctx = stage.getContext("2d");
-var continua = true;
+let continua = true;
 let gap = 85;
 let bX = 10;
 let bY = 150;
@@ -36,7 +36,7 @@ function Moveup() {
     ctx.clearRect(0, 0, stage.width, stage.height);
     // bY += 20;
     ctx.drawImage(img, bX, bY);
-    gravidade += 50;
+    gravidade -= 50;
 
     // Render();
     // if (!continua) {
@@ -65,7 +65,7 @@ function comecaAgora() {
 function gravidadeAgindo(){
     interval = setInterval(() => {
         if(gravidade > 0){
-            gravidade--;
+            gravidade++;
             bY = gravidade;
             Rerender();
             console.log("gravidade caindo: "+gravidade);
@@ -73,7 +73,7 @@ function gravidadeAgindo(){
             clearInterval(interval);
             console.log("gravidade parou de agir");
         }
-    }, 200);
+    }, 0,7);
 
 }
 
