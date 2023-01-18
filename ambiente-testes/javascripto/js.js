@@ -39,7 +39,7 @@ function Moveup() {
     gravidade -= 50;
 
     // Render();
-    // if (!continua) {
+    // if (!contiginua) {
     //     return false;
     // }
     // gravidade = -6.0;
