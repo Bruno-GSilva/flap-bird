@@ -1,6 +1,6 @@
 let stage = document.getElementById('stage');
 let ctx = stage.getContext("2d");
-var continua = true;
+let continua = true;
 let gap = 85;
 let bX = 10;
 let bY = 150;
@@ -15,11 +15,11 @@ img.src = "images/bird.png";
 
 document.addEventListener("click",() => {
     Moveup();
-    console.log("subindo")
+    console.log("subindoo")
 })
 
 function again(){
-    comecaAgora()
+    // comecaAgora()
 }
 
 function Render(){
@@ -36,10 +36,10 @@ function Moveup() {
     ctx.clearRect(0, 0, stage.width, stage.height);
     // bY += 20;
     ctx.drawImage(img, bX, bY);
-    gravidade += 50;
+    gravidade -= 50;
 
     // Render();
-    // if (!continua) {
+    // if (!contiginua) {
     //     return false;
     // }
     // gravidade = -6.0;
@@ -64,8 +64,8 @@ function comecaAgora() {
 
 function gravidadeAgindo(){
     interval = setInterval(() => {
-        if(gravidade > 0){
-            gravidade--;
+        if(gravidade > -100){
+            gravidade++;
             bY = gravidade;
             Rerender();
             console.log("gravidade caindo: "+gravidade);
@@ -73,7 +73,7 @@ function gravidadeAgindo(){
             clearInterval(interval);
             console.log("gravidade parou de agir");
         }
-    }, 200);
+    }, 8);
 
 }
 
