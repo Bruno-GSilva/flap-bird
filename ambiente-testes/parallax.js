@@ -1,59 +1,50 @@
 let canvas = document.getElementById("desenho");
 let ctx = canvas.getContext("2d");
-
+//functions
 random = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
-
+function Rerender() {
+  ctx.clearRect(0, 0, ctx.width, ctx.height);
+  ctx.drawImage(cano1, obstacle1.positionX, obstacle1.positionY);
+  ctx.drawImage(cano2, obstacle2.positionX, obstacle2.positionY);
+}
+//objects
 let obstacle1 = {
   positionX: 0,
-  positionY: 0,
+  positionY: random(-150, 0),
 };
 
 let obstacle2 = {
-  positionX: 250,
-  positionY: 0,
+  positionX: 0,
+  positionY: random(450,550),
 };
 
 let cano1 = document.createElement("img");
 cano1.src = "images/pipeNorth.png";
-
 let cano2 = document.createElement("img");
 cano2.src = "images/pipeSouth.png";
 
-function render(img, arr1, arr2) {
-  img.addEventListener("load", function () {
-    ctx.drawImage(img, arr1, arr2);
-  });
-}
-render(cano1, obstacle1.positionX, obstacle1.positionY)
+//playing game
 
-setInterval(function () {
-  obstacle1.positionX -= 100
-  // ctx.clearRect(0, 0, canvas.width, canvas.height)
-}, 800);
+moveCano = setInterval(function () {
+  
 
-// setInterval(() => {
-//   ;
-// }, 400);
+  if(obstacle1.positionX === 650){
+    clearInterval(moveCano)
+    obstacle1.positionX = 0;
+    obstacle2.positionX = 0;
+  }
+
+  obstacle1.positionX += 10
+  obstacle2.positionX += 10
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+  Rerender();
+  console.log(obstacle1.positionX)
+
+ 
+
+}, 5)
 
 
-// window.addEventListener("click", function () {
-//   // ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   let obs1 = obstacle1.positionX++;
-//   let obs2 = obstacle2.positionX++;
-//   console.log(obs1, obs2);
-//   render(
-//     cano1,
-//     "images/pipeSouth.png",
-//     obstacle1.positionX,
-//     obstacle1.positionY
-//   );
-//   render(
-//     cano2,
-//     "images/pipeNorth.png",
-//     obstacle2.positionX,
-//     obstacle2.positionY
-//   );
-// });
-// ctx.clearRect(0, 0, canvas.width, canvas.height);
