@@ -27,7 +27,7 @@ cano2.src = "src/images/pipeSouth.png";
 
 //playing game
 function loopingCano() {
-
+  
   if(obstacle1.positionX === -50){
     obstacle1.positionX = 600;
     obstacle2.positionX = 600;
@@ -40,8 +40,7 @@ function loopingCano() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   Rerender();
-  console.log(obstacle1.positionX)
-
+  // console.log(obstacle1.positionX)
 }
 
 moveCano = setInterval(loopingCano, 0.1)
