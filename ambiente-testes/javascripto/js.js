@@ -4,7 +4,7 @@ let continua = true;
 let gap = 85;
 let bX = 10;
 let bY = 150;
-let gravidade= 100;
+let gravidade = 100;
 let gravitySalve = gravidade
 let correr = 7.2;
 let anima;
@@ -12,6 +12,10 @@ let interval;
 
 let img = document.createElement("img");
 img.src = "images/bird.png";
+
+let rotate = {
+    rotateY: 45,
+}
 
 document.addEventListener("click",() => {
     Moveup();
@@ -36,7 +40,9 @@ function Moveup() {
     ctx.clearRect(0, 0, stage.width, stage.height);
     // bY += 20;
     ctx.drawImage(img, bX, bY);
-    gravidade -= 50;
+    gravidade -= 80;
+    img.style.transition = 'ease-in 1s';
+    img.style.transform = "rotateY(45deg)";
 
     // Render();
     // if (!contiginua) {
@@ -49,6 +55,20 @@ function Moveup() {
     //     gravidade =  gravitySalve;
     // }, 80);
 
+}
+
+
+const reset = () => {
+    // continua = true;
+    // score = 0;
+    gravidade = () =>{
+        if(gravidade === 100){
+            gravidade = 0;
+        }
+    };
+    bY = 150;
+    // Render();
+    gravidadeAgindo();
 }
 
 
@@ -69,9 +89,11 @@ function gravidadeAgindo(){
             bY = gravidade;
             Rerender();
             console.log("gravidade caindo: "+gravidade);
-        }else{
+        }
+        if(gravidade >= 500){
             clearInterval(interval);
             console.log("gravidade parou de agir");
+            reset();
         }
     }, 8);
 
