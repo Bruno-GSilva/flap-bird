@@ -1,23 +1,15 @@
 let stage = document.getElementById('stage');
 let ctx = stage.getContext("2d");
-let continua = true;
-let gap = 85;
+let img = document.createElement("img");
+
 let bX = 10;
 let bY = 150;
 let gravidade = 100;
 let gravitySalve = gravidade
-let correr = 7.2;
-let anima;
-let interval;
 
-let img = document.createElement("img");
 img.src = "images/bird.png";
 
-let rotate = {
-    rotateY: 45,
-}
-
-document.addEventListener("click",() => {
+document.addEventListener("click", () => {
     Moveup();
     console.log("subindoo")
 })
@@ -31,14 +23,13 @@ function Render(){
         ctx.drawImage(img, bX, bY);
     });
 }
-function Rerender(){
+function Rerender() {
     ctx.clearRect(0, 0, stage.width, stage.height);
     ctx.drawImage(img, bX, bY);
 }
 
 function Moveup() {
     ctx.clearRect(0, 0, stage.width, stage.height);
-    // bY += 20;
     ctx.drawImage(img, bX, bY);
     gravidade -= 80;
     img.style.transition = 'ease-in 1s';
@@ -57,48 +48,31 @@ function Moveup() {
 
 }
 
-
-const reset = () => {
-    // continua = true;
-    // score = 0;
-    gravidade = () =>{
-        if(gravidade === 100){
-            gravidade = 0;
-        }
-    };
-    bY = 150;
-    // Render();
+function comecaAgora() {
+    score = 0;
+    gravidade = gravitySalve;
+    bY = 150;   
+    Render();
     gravidadeAgindo();
 }
 
-
-function comecaAgora() {
-    continua = true;
-    score = 0;
-    gravidade = gravitySalve;
-    bY = 150;
-    Render();
-    gravidadeAgindo();
-
-} comecaAgora();
-
-function gravidadeAgindo(){
+function gravidadeAgindo() {
     interval = setInterval(() => {
-        if(gravidade > -100){
+        if (gravidade > -100) {
             gravidade++;
             bY = gravidade;
             Rerender();
-            console.log("gravidade caindo: "+gravidade);
+            console.log("gravidade caindo: " + gravidade);
         }
-        if(gravidade >= 500){
+        if (gravidade >= 500) {
             clearInterval(interval);
+            ctx.clearRect(0, 0, stage.width, stage.height)
+            gravidade = gravitySalve;
+
             console.log("gravidade parou de agir");
-            reset();
         }
     }, 8);
 
 }
-
-
 
 
