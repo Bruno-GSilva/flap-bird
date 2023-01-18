@@ -11,19 +11,19 @@ function Rerender() {
 }
 //objects
 let obstacle1 = {
-  positionX: 550,
-  positionY: random(-150, 0),
+  positionX: 310,
+  positionY: random(-100, 0),
 };
 
 let obstacle2 = {
-  positionX: 550,
-  positionY: random(450,550),
+  positionX: 310,
+  positionY: random(270, 300),
 };
 
 let cano1 = document.createElement("img");
-cano1.src = "images/pipeNorth.png";
+cano1.src = "src/images/pipeNorth.png";
 let cano2 = document.createElement("img");
-cano2.src = "images/pipeSouth.png";
+cano2.src = "src/images/pipeSouth.png";
 
 //playing game
 function loopingCano() {
