@@ -22,7 +22,9 @@ document.addEventListener("click",() => {
     console.log("subindoo")
 })
 
-
+function again(){
+    comecaAgora()
+}
 
 function Render(){
     img.addEventListener('load',function(){
@@ -43,7 +45,7 @@ function Moveup() {
     img.style.transform = "rotateY(45deg)";
 
     // Render();
-    // if (!contiginua) {
+    // if (!continua) {
     //     return false;
     // }
     // gravidade = -6.0;
@@ -94,7 +96,6 @@ function gravidadeAgindo(){
             reset();
         }
     }, 8);
-    
 
 }
 
