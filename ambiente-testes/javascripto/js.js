@@ -1,50 +1,53 @@
 let stage = document.getElementById('stage');
 let ctx = stage.getContext("2d");
 let img = document.createElement("img");
+img.src = "images/bird.png";
 
 let propsImg = {
     bX: 10,
     bY: 150,
     gravidade: 100,
+    positionImg: img.getBoundingClientRect(render()),
 }
-
 let gravitySalve = propsImg.gravidade;
 
+function start(){
+    let positionProps = propsImg.positionImg;
+    propsImg.gravidade = gravitySalve;
+    propsImg.bY = 150;
+    render();
+    return positionProps;
+}
 
-img.src = "images/bird.png";
+console.log(start())
 
 document.addEventListener("click", () => {
-    Moveup();
-    console.log("subindoo")
+    function moveUp() {
+        ctx.clearRect(0, 0, stage.width, stage.height);
+        ctx.drawImage(img, propsImg.bX, propsImg.bY);
+        propsImg.gravidade -= 80;
+        
+    }
+    moveUp();
+    gravidadeAgindo();
+    console.log("subindoo");
 })
 
-
-
-function Render(){
-    img.addEventListener('load',function(){
+function render() {
+    img.addEventListener('load', function () {
         ctx.drawImage(img, propsImg.bX, propsImg.bY);
     });
 }
-function Rerender() {
+function reRender() {
     ctx.clearRect(0, 0, stage.width, stage.height);
     ctx.drawImage(img, propsImg.bX, propsImg.bY);
-}
-
-function Moveup() {
-    ctx.clearRect(0, 0, stage.width, stage.height);
-    ctx.drawImage(img, propsImg.bX, propsImg.bY);
-    propsImg.gravidade -= 80;
-    img.style.transition = 'ease-in 1s';
-    img.style.transform = "rotateY(45deg)";
-
 }
 
 function comecaAgora() {
     score = 0;
     propsImg.gravidade = gravitySalve;
-    propsImg.bY = 150;   
-    Render();
-    gravidadeAgindo();
+    propsImg.bY = 150;
+    render();
 }
 
 function gravidadeAgindo() {
@@ -52,18 +55,16 @@ function gravidadeAgindo() {
         if (propsImg.gravidade > -100) {
             propsImg.gravidade++;
             propsImg.bY = propsImg.gravidade;
-            Rerender();
+            reRender();
             console.log("gravidade caindo: " + propsImg.gravidade);
         }
         if (propsImg.gravidade >= 500) {
             clearInterval(interval);
             ctx.clearRect(0, 0, stage.width, stage.height)
-            propsImg.gravidade = gravitySalve;
-
+            start();
             console.log("gravidade parou de agir");
         }
     }, 8);
-
 }
 
 
