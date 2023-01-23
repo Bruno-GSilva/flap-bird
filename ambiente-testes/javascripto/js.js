@@ -55,9 +55,12 @@ function gravidadeAgindo() {
             Rerender();
             console.log("gravidade caindo: " + propsImg.gravidade);
         }
-        if (propsImg.gravidade >= 500) {
+        if (propsImg.gravidade >= 480) {
             clearInterval(interval);
             ctx.clearRect(0, 0, stage.width, stage.height)
+            propsImg.bX = 10;
+            propsImg.bY = 150;
+            Rerender();
             propsImg.gravidade = gravitySalve;
 
             console.log("gravidade parou de agir");
