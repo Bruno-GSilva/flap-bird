@@ -5,6 +5,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 #stage{
@@ -14,4 +15,8 @@ body{
     justify-content: center;
     align-items: center;
     border: 4px solid rebeccapurple;
+}
+
+img{
+transition: .2s;
 }

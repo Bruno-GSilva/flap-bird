@@ -2,10 +2,11 @@ let stage = document.getElementById('stage');
 let ctx = stage.getContext("2d");
 let img = document.createElement("img");
 
+
 let propsImg = {
     bX: 10,
     bY: 150,
-    gravidade: 100,
+    gravidade: 150,
 }
 
 let gravitySalve = propsImg.gravidade;
@@ -33,9 +34,8 @@ function Rerender() {
 function Moveup() {
     ctx.clearRect(0, 0, stage.width, stage.height);
     ctx.drawImage(img, propsImg.bX, propsImg.bY);
-    propsImg.gravidade -= 80;
-    img.style.transition = 'ease-in 1s';
-    img.style.transform = "rotateY(45deg)";
+     propsImg.gravidade-= 80;
+
 
 }
 
@@ -61,12 +61,14 @@ function gravidadeAgindo() {
             propsImg.bX = 10;
             propsImg.bY = 150;
             Rerender();
-            propsImg.gravidade = gravitySalve;
+            // propsImg.gravidade = gravitySalve;
 
             console.log("gravidade parou de agir");
         }
     }, 8);
 
 }
+
+
 
 
