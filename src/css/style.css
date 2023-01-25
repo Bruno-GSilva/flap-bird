@@ -47,9 +47,11 @@ body {
   font-weight: 100;
   letter-spacing: 2px;
   text-shadow: 0 0 10px black;
+  transition: .5s;
 }
 
 #btn{
+  z-index: 3;
   position: relative;
   background-color: brown;
   border: none;
@@ -62,5 +64,5 @@ body {
   color: white;
 }
 #btn:hover{
-  transform: rotate(45deg);
+  background-color: rgb(198, 4, 4);
 }

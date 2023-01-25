@@ -26,23 +26,20 @@ let cano2 = document.createElement("img");
 cano2.src = "src/images/pipeSouth.png";
 
 //playing game
-setTimeout(function(){
-function loopingCano() {
+function loopingCano(){
+  setInterval(function () {
+    if (obstacle1.positionX === -50) {
+      obstacle1.positionX = 600;
+      obstacle2.positionX = 600;
+      obstacle1.positionY = random(-150, 0);
+      obstacle2.positionY = random(450, 550);
+    }
   
-  if(obstacle1.positionX === -50){
-    obstacle1.positionX = 600;
-    obstacle2.positionX = 600;
-    obstacle1.positionY = random(-150, 0);
-    obstacle2.positionY = random(450,550);
-  }
-
-  obstacle1.positionX--
-  obstacle2.positionX--
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
-  Rerender();
+    obstacle1.positionX--
+    obstacle2.positionX--
+  
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    Rerender();
+  }, 0.01)
 }
-
-moveCano = setInterval(loopingCano, 0.01)
-
-}, 1700)
+loopingCano()
