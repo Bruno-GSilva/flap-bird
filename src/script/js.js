@@ -1,5 +1,5 @@
 let stage = document.getElementById('stage');
-let ctx = stage.getContext("2d");
+let ctxx = stage.getContext("2d");
 let img = document.createElement("img");
 
 
@@ -11,30 +11,27 @@ let propsImg = {
 
 let gravitySalve = propsImg.gravidade;
 
-
-img.src = "images/bird.png";
+img.src = "src/images/bird.png";
 
 document.addEventListener("click", () => {
     Moveup();
     console.log("subindoo")
 })
 
-
-
 function Render(){
     img.addEventListener('load',function(){
-        ctx.drawImage(img, propsImg.bX, propsImg.bY);
+        ctxx.drawImage(img, propsImg.bX, propsImg.bY);
     });
 }
 function Rerender() {
-    ctx.clearRect(0, 0, stage.width, stage.height);
-    ctx.drawImage(img, propsImg.bX, propsImg.bY);
+    ctxx.clearRect(0, 0, stage.width, stage.height);
+    ctxx.drawImage(img, propsImg.bX, propsImg.bY);
 }
 
 function Moveup() {
-    ctx.clearRect(0, 0, stage.width, stage.height);
-    ctx.drawImage(img, propsImg.bX, propsImg.bY);
-     propsImg.gravidade-= 80;
+    ctxx.clearRect(0, 0, stage.width, stage.height);
+    ctxx.drawImage(img, propsImg.bX, propsImg.bY);
+     propsImg.gravidade -= 100;
 
 
 }
@@ -55,9 +52,9 @@ function gravidadeAgindo() {
             Rerender();
             console.log("gravidade caindo: " + propsImg.gravidade);
         }
-        if (propsImg.gravidade >= 480) {
+        if (propsImg.gravidade >= 600) {
             clearInterval(interval);
-            ctx.clearRect(0, 0, stage.width, stage.height)
+            ctxx.clearRect(0, 0, stage.width, stage.height)
             propsImg.bX = 10;
             propsImg.bY = 150;
             Rerender();
@@ -68,7 +65,3 @@ function gravidadeAgindo() {
     }, 8);
 
 }
-
-
-
-

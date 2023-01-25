@@ -41,12 +41,8 @@ function loopingCano() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   Rerender();
-  // console.log(obstacle1.positionX)
 }
 
 moveCano = setInterval(loopingCano, 0.01)
 
 }, 1700)
-// setTimeout(function(){
-//   clearInterval(moveCano)
-// }, 10000)
