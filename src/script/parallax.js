@@ -1,4 +1,4 @@
-let canvas = document.getElementById("desenho");
+let canvas = document.getElementById("cenario");
 let ctx = canvas.getContext("2d");
 //functions
 random = (min, max) => {
@@ -19,6 +19,11 @@ let obstacle2 = {
   positionX: 310,
   positionY: random(270, 300),
 };
+
+let {positionX, positionY} = obstacle1
+
+// console.log(positionX)
+// console.log(positionY)
 
 let cano1 = document.createElement("img");
 cano1.src = "src/images/pipeNorth.png";
@@ -42,4 +47,3 @@ function loopingCano(){
     Rerender();
   }, 0.01)
 }
-loopingCano()

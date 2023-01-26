@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Bird</title>
-    <link rel="stylesheet" href="src/css/style.css">
-</head>
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
 
-<body onload="Render()">
-    
+  <body>
     <div id="telaLogin">
-        <h1>Flappy Bird</h1>
-        <button id="btn">Play</button>
+      <h1>Flappy Bird</h1>
+      <button id="btn1">Play</button>
     </div>
 
-    <canvas id="stage" width="360px" height="640px"></canvas>
-    <canvas id="score" width="360px" height="640px"></canvas>
-    <canvas id="desenho" width="360px" height="640px"></canvas>
+    <div id="telaGameover">
+      <h1>Game Over</h1>
+      <button id="btn2">Restart</button>
+    </div>
 
-    <script src="src/script/main.js"></script>
-</body>
+    <canvas id="score" width="100px" height="50px"></canvas>
+    <!-- <canvas id="personagem" width="360px" height="640px"></canvas> -->
+    <canvas id="cenario" width="360px" height="640px"></canvas>
 
+    <!-- <script src="src/script/player.js"></script> -->
+    <script src="src/script/score.js"></script>
+    <!-- <script src="src/script/parallax.js"></script> -->
+    <script src="src/script/game.js"></script>
+    
+  </body>
 </html>
