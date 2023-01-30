@@ -65,14 +65,14 @@ body {
   height: 50px;
   border: none;
   border-radius: 15px;
-  box-shadow: inset 0 0 15px red;
+  box-shadow: inset 0 0 15px #b80c09;
   background-color: brown;
   font-size: 30px;
   color: white;
   cursor: pointer;
 }
 #btn1:hover{
-  background-color: rgb(198, 4, 4);
+  background-color: #b80c09;
 }
 
 #telaGameover{
@@ -105,4 +105,76 @@ body {
   font-size: 30px;
   color: white;
   cursor: pointer;
+}
+#escolherPersonagens{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+#personagem{
+  width: 100px;
+  height: 100px;
+  border: 5px solid #b80c09;
+  border-radius: 12px;
+  background-color: gray;
+  box-shadow: 0 0 15px #b80c09;
+  overflow: hidden;
+}
+.setas img{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.setas img:hover{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(5%) saturate(7443%) hue-rotate(215deg) brightness(99%) contrast(111%);
+}
+
+/* #personagem img{
+  width: 100%;
+} */
+
+#personagem #cadeado{
+  position: absolute;
+  left: 150px;
+  top: 390px;
+  width: 50px;
+  height: 50px;
+  filter: brightness(0) saturate(100%) invert(19%) sepia(30%) saturate(6121%) hue-rotate(351deg) brightness(101%) contrast(106%);
+}
+#personagem #gleidinho{
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  z-index: 1;
+}
+#personagem #fong{
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  z-index: 1;
+}
+#personagem #eduardo{
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  z-index: 1;
+}
+#personagem #suellen{
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  z-index: 1;
+}
+#personagem #adel{
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  z-index: 1;
 }

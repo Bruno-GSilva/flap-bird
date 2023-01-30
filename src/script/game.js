@@ -12,6 +12,16 @@ let bird = document.createElement("img");
 let cano1 = document.createElement("img");
 let cano2 = document.createElement("img");
 
+
+let setaEsquerda = document.getElementById("setaEsquerda")
+let setaDireta = document.getElementById("setaDireita")
+
+let gleid = document.getElementById("gleidinho")
+let suellen = document.getElementById("suellen")
+let fong = document.getElementById("fong")
+let eduardo = document.getElementById("eduardo")
+let adel = document.getElementById("adel")
+
 bird.src = "src/images/bird.png";
 cano1.src = "src/images/pipeNorth.png";
 cano2.src = "src/images/pipeSouth.png";
@@ -26,15 +36,18 @@ random = (min, max) => {
 //objects
 let obstacle1 = {
   c1PositionX: 310,
-  c1PositionY: random(-100, 0),
+  // c1PositionY: random(-100, 0),
+  c1PositionY: -100
 };
 
 let obstacle2 = {
   c2PositionX: 310,
-  c2PositionY: random(270, 300),
+  // c2PositionY: random(270, 370),
+  c2PositionY: 270
 };
 let { c1PositionX, c1PositionY } = obstacle1;
 let { c2PositionX, c2PositionY } = obstacle2;
+
 
 function render() {
   window.addEventListener("load", function () {
@@ -48,7 +61,7 @@ function reRender() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(cano1, c1PositionX, c1PositionY);
   ctx.drawImage(cano2, c2PositionX, c2PositionY);
-    ctx.drawImage(bird, player.eixoX, player.eixoY);
+  ctx.drawImage(bird, player.eixoX, player.eixoY);
 }
 
 function Moveup() {
@@ -72,28 +85,47 @@ let player = {
 
 
 //playing game
-
 canvas.addEventListener("touchmove", () => {
   Moveup();
 });
 canvas.addEventListener("click", () => {
-    Moveup();
-  });
+  Moveup();
+});
 function loopingCano() {
   setInterval(function () {
     reRender()
     if (c1PositionX === -50) {
       c1PositionX = 600;
-      c1PositionY = random(-150, 0);
+      // c1PositionY = random(-100, 0);
       c2PositionX = 600;
-      c2PositionY = random(450, 550);
+      // c2PositionY = random(270, 370);
     }
-
+    
     c1PositionX--;
     c2PositionX--;
-
-    console.log(c1PositionX, c2PositionX);
+    // console.log(save)
+    // console.log(c1PositionX, c2PositionX);
+    if(player.eixoX + 10 == c1PositionX){
+      saveArea()
+    }
   }, 10);
+}
+
+let save = {
+  value1: 150,
+  value2: 270,
+}
+if(c1PositionY <= -100){
+  
+}
+function saveArea() {
+  if (player.eixoY > save.value1 && player.gravidade <save.value2) {
+    console.log("deu certo")
+  } else{
+    morreu = true;
+    console.log("deu errado")
+  }
+  console.log(player.gravidade, c1PositionY, c2PositionY)
 }
 
 function gravidadeAgindo() {
@@ -102,7 +134,7 @@ function gravidadeAgindo() {
       player.gravidade++;
       player.eixoY = player.gravidade;
       reRender();
-      console.log(`gravidade = ${player.gravidade}, eixoY = ${player.eixoY}`);
+      // console.log(`gravidade = ${player.gravidade}, eixoY = ${player.eixoY}`);
     }
     gameOver();
   }, 10);
@@ -121,7 +153,7 @@ function gameOver() {
     morreu = true;
     clearInterval(interval);
 
-    console.log(`personagem esta morto = ${morreu}`);
+    // console.log(`personagem esta morto = ${morreu}`);
   }
   if (morreu !== false) {
     GameOver();
@@ -148,3 +180,12 @@ btn2.addEventListener("click", function () {
   morreu = false;
   telaGameover.style.display = "none";
 });
+let passar = [suellen, gleid, eduardo, fong, adel];
+
+setaDireta.addEventListener('click',function(){
+  // console.log()
+  passar[random(0,4)].style.zIndex = 2;
+})
+setaEsquerda.addEventListener('click',function(){
+  passar[random(0,4)].style.zIndex = 1;
+})
